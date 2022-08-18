@@ -1,0 +1,15 @@
+2022-08-17 21:07:18.626 [main] INFO  MainClass - Hello world
+2022-08-17 21:07:18.636 [main] INFO  PassengerFlowCalculation - Ivan works at the Nemiga
+2022-08-17 21:07:18.637 [main] INFO  PassengerFlowCalculation - Employee does not work at the Proletarskaya station
+2022-08-17 21:07:18.637 [main] INFO  PassengerFlowCalculation - Ivan	Shtadler	Shtadler
+2022-08-17 21:07:18.642 [main] INFO  PassengerFlowCalculation - you need 20 trains for 5000 passangers
+2022-08-17 21:07:18.643 [main] INFO  equip.EquipForCleaner - Nikolay use Mop
+2022-08-17 21:07:18.643 [main] INFO  equip.EquipForCleaner - Nikolay use Overalls
+2022-08-17 21:07:18.643 [main] INFO  PassengerFlowCalculation - Hashcode machinist 1 = 
+2022-08-17 21:07:18.645 [main] INFO  PassengerFlowCalculation - -639411390_______-938631064
+2022-08-17 21:07:18.645 [main] INFO  PassengerFlowCalculation - First Name = Ivan
+2022-08-17 21:07:18.646 [main] INFO  PassengerFlowCalculation - Last Name =  Drozd
+2022-08-17 21:07:18.647 [main] INFO  profession.Machinist - Ivan salary per month = 825.0$
+2022-08-17 21:07:18.648 [main] INFO  MainClass - Operation end!
+2022-08-17 21:07:18.648 [main] INFO  ClassForTryCatch - doSmth in try-with-resources
+2022-08-17 21:07:18.649 [main] INFO  ClassForTryCatch - Close ClassForTryCatch!

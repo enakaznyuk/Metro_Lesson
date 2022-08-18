@@ -18,7 +18,7 @@ public class Station implements IMajorRenovation, IWork<Station> {
     private String name;
     private ArrayList<Employee> employees;
 
-    public Station(String name, LocalDate dateBasis) throws InvalidDataException {
+    public Station(String name, LocalDate dateBasis){
         this.name = name;
         this.dateBasis = dateBasis;
         if (dateBasis.getYear() < 1980) {

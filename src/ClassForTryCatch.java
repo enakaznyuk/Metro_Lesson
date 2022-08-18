@@ -5,6 +5,10 @@ public class ClassForTryCatch implements AutoCloseable{
 
     private static final Logger LOGGER = LogManager.getLogger(ClassForTryCatch.class);
 
+    public void doSmth(){
+        LOGGER.info("doSmth in try-with-resources");
+    }
+
     @Override
     public void close() {
         LOGGER.info("Close ClassForTryCatch!");

@@ -20,7 +20,7 @@ public abstract class Employee extends Human implements ISalary, ISick, IWork<Em
     private BigInteger vacationSickDays;
     private String holiday;
 
-    public Employee(String firstName, String secondName, String profession) throws InvalidNameException {
+    public Employee(String firstName, String secondName, String profession) {
         super(firstName, secondName);
         this.profession = profession;
 
