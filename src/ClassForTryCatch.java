@@ -1,11 +1,11 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ClassForTryCatch implements AutoCloseable{
+public class ClassForTryCatch implements AutoCloseable {
 
     private static final Logger LOGGER = LogManager.getLogger(ClassForTryCatch.class);
 
-    public void doSmth(){
+    public void doSmth() {
         LOGGER.info("doSmth in try-with-resources");
     }
 

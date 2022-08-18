@@ -59,9 +59,9 @@ public class PassengerFlowCalculation {
         }
 
         if ("Morning".equals(timeTable.getPartOfDay())) {
-            LOGGER.info("you need 3 trains for " + numberOfPassangers/5 + " passangers");
+            LOGGER.info("you need 3 trains for " + numberOfPassangers / 5 + " passangers");
         } else if ("Day".equals(timeTable.getPartOfDay())) {
-            LOGGER.info("you need 5 trains for " + numberOfPassangers/10 + " passangers");
+            LOGGER.info("you need 5 trains for " + numberOfPassangers / 10 + " passangers");
         } else if ("Evening".equals(timeTable.getPartOfDay())) {
             LOGGER.info("you need 20 trains for " + numberOfPassangers + " passangers");
         }
@@ -87,7 +87,7 @@ public class PassengerFlowCalculation {
         }
     }
 
-    public static void getFirstAndLastName(Human human){
+    public static void getFirstAndLastName(Human human) {
         LOGGER.info("First Name = " + human.getFirstName());
         LOGGER.info("Last Name =  " + human.getLastName());
     }
