@@ -1,6 +1,8 @@
 out/
 .idea/
 .idea_modules/
+.logs/
+.DS_Store
 *.iml
 *.ipr
 *.iws
