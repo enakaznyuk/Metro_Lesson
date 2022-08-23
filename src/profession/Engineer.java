@@ -2,11 +2,13 @@ package profession;
 
 import equip.Equip;
 import exception.InvalidSalaryException;
+import impl.IWork;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Engineer extends Employee {
 
@@ -14,10 +16,17 @@ public class Engineer extends Employee {
 
     private String company;
     private String companyAddress;
-    private ArrayList<Equip> equips;
+    private List<Equip> equips;
 
     public Engineer(String firstName, String lastName, String profession) {
         super(firstName, lastName, profession);
+    }
+
+    public String toString() {
+        String fullName = getFirstName() + " " + getLastName();
+        return "Engineer{ "
+                + "Full Name = " + fullName
+                + " }";
     }
 
     @Override
@@ -41,13 +50,11 @@ public class Engineer extends Employee {
 
     @Override
     public void getTimeWorking(Employee employee) {
-        //Engineer other = (Engineer) obj;
         LOGGER.info(getFirstName() + " is working from 8:00 to 17:00");
     }
 
     @Override
     public void getWeekend(Employee employee) {
-        //Engineer other = (Engineer) obj;
         LOGGER.info(getFirstName() + " has " + getHoliday());
     }
 
@@ -75,11 +82,11 @@ public class Engineer extends Employee {
         super.getCompanyAddress(getCompanyAddress());
     }
 
-    public ArrayList<Equip> getEquips() {
+    public List<Equip> getEquips() {
         return equips;
     }
 
-    public void setEquips(ArrayList<Equip> equips) {
+    public void setEquips(List<Equip> equips) {
         this.equips = equips;
     }
 }

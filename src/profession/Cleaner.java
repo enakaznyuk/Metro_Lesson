@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.List;
 
 public class Cleaner extends Employee {
 
@@ -14,10 +14,17 @@ public class Cleaner extends Employee {
 
     private String company;
     private String companyAddress;
-    private ArrayList<Equip> equips;
+    private List<Equip> equips;
 
     public Cleaner(String firstName, String lastName, String profession) {
         super(firstName, lastName, profession);
+    }
+
+    public String toString() {
+        String fullName = getFirstName() + " " + getLastName();
+        return "Cleaner{ "
+                + "Full Name = " + fullName
+                + " }";
     }
 
     @Override
@@ -41,13 +48,11 @@ public class Cleaner extends Employee {
 
     @Override
     public void getTimeWorking(Employee employee) {
-        //Cleaner other = (Cleaner) obj;
         LOGGER.info(getFirstName() + " is working from 8:00 to 17:00");
     }
 
     @Override
     public void getWeekend(Employee employee) {
-        //Cleaner other = (Cleaner) obj;
         LOGGER.info(getFirstName() + " has " + getHoliday());
     }
 
@@ -75,11 +80,11 @@ public class Cleaner extends Employee {
         super.getCompanyAddress(getCompanyAddress());
     }
 
-    public ArrayList<Equip> getEquips() {
+    public List<Equip> getEquips() {
         return equips;
     }
 
-    public void setEquips(ArrayList<Equip> equips) {
+    public void setEquips(List<Equip> equips) {
         this.equips = equips;
     }
 }

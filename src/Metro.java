@@ -1,28 +1,29 @@
 import profession.*;
 import station.Station;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Metro {
 
-    private ArrayList<Employee> employees;
-    private ArrayList<Station> stations;
-    private ArrayList<Passenger> passengers;
+    private Map<Integer, Employee> employees;
+    private List<Station> stations;
+    private List<Passenger> passengers;
     private TimeTable timeTable;
 
-    public ArrayList<Employee> getEmployees() {
+    public Map<Integer, Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(ArrayList<Employee> employees) {
+    public void setEmployees(Map<Integer, Employee> employees) {
         this.employees = employees;
     }
 
-    public ArrayList<Station> getStations() {
+    public List<Station> getStations() {
         return stations;
     }
 
-    public void setStations(ArrayList<Station> stations) {
+    public void setStations(List<Station> stations) {
         this.stations = stations;
     }
 
@@ -34,11 +35,11 @@ public class Metro {
         this.timeTable = timeTable;
     }
 
-    public ArrayList<Passenger> getPassengers() {
+    public List<Passenger> getPassengers() {
         return passengers;
     }
 
-    public void setPassengers(ArrayList<Passenger> passengers) {
+    public void setPassengers(List<Passenger> passengers) {
         this.passengers = passengers;
     }
 }

@@ -10,9 +10,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,8 +25,6 @@ public class MainClass {
 
     public static void main(String[] args) {
 
-        //HashMap<Integer, String> proba = new HashMap<>();
-
         Metro metro = new Metro();
         BigDecimal bigDecimal = new BigDecimal(150);
         BigInteger bigInteger = new BigInteger("14");
@@ -40,47 +36,53 @@ public class MainClass {
         ivan.setPay(bigDecimal);
         ivan.setHoliday("14");
         ivan.setVacationSickDays(bigInteger);
-
-        System.out.println(ivan);
+        ivan.setIdPassport(123);
 
         Machinist sergey = new Machinist("Sergey", "Sinica", "Machinist");
         sergey.setCompany("Metro.job");
         sergey.setCompanyAddress("Lenin street, house 2");
-        ArrayList<Machinist> machinists = new ArrayList<>();
+        sergey.setIdPassport(456);
+        List<Machinist> machinists = new ArrayList<>();
         machinists.add(ivan);
         machinists.add(sergey);
 
         Engineer dmitriy = new Engineer("Dmitriy", "Kukushka", "Engineer");
-        ArrayList<Engineer> engineers = new ArrayList<>();
+        dmitriy.setIdPassport(789);
+        List<Engineer> engineers = new ArrayList<>();
         engineers.add(dmitriy);
 
         Cleaner nikolay = new Cleaner("Nikolay", "Vorobey", "Cleaner");
-        ArrayList<Cleaner> cleaners = new ArrayList<>();
+        nikolay.setIdPassport(123456789);
+        List<Cleaner> cleaners = new ArrayList<>();
         cleaners.add(nikolay);
 
-        ArrayList<Employee> stationNemigaEmloyees = new ArrayList<>();
-        stationNemigaEmloyees.add(ivan);
-        stationNemigaEmloyees.add(sergey);
-        ArrayList<Employee> stationProletarskayaEmployees = new ArrayList<>(Arrays.asList(dmitriy, nikolay));
-        ArrayList<Employee> employees = new ArrayList<>(stationNemigaEmloyees);
-        employees.addAll(stationProletarskayaEmployees);
+        Map<Integer,/* ? super */Employee> stationNemigaEmloyees = new HashMap<>();
+        stationNemigaEmloyees.put(ivan.getIdPassport(), ivan);
+        stationNemigaEmloyees.put(sergey.getIdPassport(), sergey);
+        //List<Employee> stationProletarskayaEmployees = new ArrayList<>(Arrays.asList(dmitriy, nikolay));
+        Map<Integer,/* ? super */Employee> stationProletarskayaEmloyees = new HashMap<>();
+        stationProletarskayaEmloyees.put(dmitriy.getIdPassport(), dmitriy);
+        stationProletarskayaEmloyees.put(nikolay.getIdPassport(), nikolay);
+        Map<Integer,/* ? extends */Employee> employees = new HashMap<>();
+        employees.putAll(stationProletarskayaEmloyees);
+        employees.putAll(stationNemigaEmloyees);
 
         Station nemiga = new Station("Nemiga", LocalDate.of(1985, 7, 21));
         Station proletarskaya = new Station("Proletarskaya", LocalDate.of(1987, 3, 15));
         nemiga.setEmployees(stationNemigaEmloyees);
-        proletarskaya.setEmployees(stationProletarskayaEmployees);
-        ArrayList<Station> stations = new ArrayList<>(Arrays.asList(nemiga, proletarskaya));
+        proletarskaya.setEmployees(stationProletarskayaEmloyees);
+        List<Station> stations = new ArrayList<>(Arrays.asList(nemiga, proletarskaya));
 
         EquipForCleaner mop = new EquipForCleaner("Mop", "Cleaner Room");
         EquipForEngineer overalls = new EquipForEngineer("Overalls", "Cleaner Room");
         EquipForEngineer setOfTools = new EquipForEngineer("Set of tools", "Engineer Room");
-        ArrayList<Equip> cleanerEquips = new ArrayList<>(Arrays.asList(mop, overalls));
-        ArrayList<Equip> engineerEquips = new ArrayList<>(Arrays.asList(setOfTools));
+        List<Equip> cleanerEquips = new ArrayList<>(Arrays.asList(mop, overalls));
+        List<Equip> engineerEquips = new ArrayList<>(List.of(setOfTools));
         nikolay.setEquips(cleanerEquips);
         dmitriy.setEquips(engineerEquips);
 
-        Train<Integer> train = new Train(1, LocalDate.of(2015, 9, 16), "Shtadler");
-        ArrayList<Train> trains = new ArrayList<>(Arrays.asList(train));
+        Train<Integer> train = new Train<>(1, LocalDate.of(2015, 9, 16), "Shtadler");
+        List<Train<?>> trains = new ArrayList<>(List.of(train));
         ivan.setTrain(trains.get(0));
 
         TimeTable timeTable = new TimeTable();
@@ -99,7 +101,7 @@ public class MainClass {
         metro.setTimeTable(timeTable);
         metro.setPassengers(passengers);
 
-        PassengerFlowCalculation.isEmployeeWorking("Ivan", stations);
+        PassengerFlowCalculation.isEmployeeWorking(123, stations);
         PassengerFlowCalculation.getInformationAboutTrain(ivan);
         PassengerFlowCalculation.flowDivision(timeTable, passengers);
         PassengerFlowCalculation.useEquip(nikolay);

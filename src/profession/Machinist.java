@@ -14,7 +14,7 @@ public class Machinist extends Employee {
 
     private String company;
     private String companyAddress;
-    private Train train;
+    private Train<?> train;
 
     public Machinist(String firstName, String lastName, String profession) {
         super(firstName, lastName, profession);
@@ -75,21 +75,19 @@ public class Machinist extends Employee {
 
     @Override
     public void getTimeWorking(Employee employee) {
-        //Machinist other = (Machinist) obj;
         LOGGER.info(getFirstName() + " is working from 8:00 to 17:00");
     }
 
     @Override
     public void getWeekend(Employee employee) {
-        //Machinist other = (Machinist) obj;
         LOGGER.info(getFirstName() + " has " + getHoliday());
     }
 
-    public Train getTrain() {
+    public Train<?> getTrain() {
         return train;
     }
 
-    public void setTrain(Train train) {
+    public void setTrain(Train<?> train) {
         this.train = train;
     }
 

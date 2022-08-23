@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import profession.Employee;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Map;
 
 public class Station implements IMajorRenovation, IWork<Station> {
 
@@ -16,7 +16,7 @@ public class Station implements IMajorRenovation, IWork<Station> {
 
     private LocalDate dateBasis;
     private String name;
-    private ArrayList<Employee> employees;
+    private Map<Integer, Employee> employees;
 
     public Station(String name, LocalDate dateBasis) {
         this.name = name;
@@ -42,11 +42,11 @@ public class Station implements IMajorRenovation, IWork<Station> {
         LOGGER.info("Station is working everyday");
     }
 
-    public ArrayList<Employee> getEmployees() {
+    public Map<Integer, Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(ArrayList<Employee> employees) {
+    public void setEmployees(Map<Integer, Employee> employees) {
         this.employees = employees;
     }
 

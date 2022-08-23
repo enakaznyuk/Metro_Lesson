@@ -6,24 +6,30 @@ import station.Station;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class PassengerFlowCalculation {
 
     private static final Logger LOGGER = LogManager.getLogger(PassengerFlowCalculation.class);
 
-    public static void isEmployeeWorking(String firstName, ArrayList<Station> stations) {
-        for (int j = 0; j < stations.size(); j++) {
-            String stationEmployee = stations.get(j).getEmployees().get(j).getFirstName();
-            if (firstName.equals(stationEmployee)) {
-                LOGGER.info(stationEmployee + " works at the " + stations.get(j).getName());
-            } else {
-                LOGGER.info("Employee does not work at the " + stations.get(j).getName() + " station");
+    public static void isEmployeeWorking(Integer idPassport, List<Station> stations) {
+        for (Station station : stations) {
+            boolean work = false;
+            for(Map.Entry<Integer, Employee> entry : station.getEmployees().entrySet()){
+                if (idPassport.equals(entry.getKey())) {
+                    LOGGER.info(station.getEmployees().get(idPassport) + " works at " + station.getName());
+                    work = true;
+                    break;
+                }
+            }
+            if(!work){
+                LOGGER.info(idPassport + " does not working at " + station.getName());
             }
         }
     }
 
     public static void getInformationAboutTrain(Machinist machinist) {
-        //T number = machinist.getTrain().getTrainNumber();
         String model = machinist.getTrain().getModelTrain();
         LOGGER.info(machinist.getFirstName() + '\t' + machinist.getTrain().getModelTrain() + '\t' + model);
     }
